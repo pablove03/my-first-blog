@@ -1,0 +1,29 @@
+import sys
+import pygame
+from pygame.color import THECOLORS
+
+pygame.init()
+dis = pygame.display.set_mode((1200, 800))
+dis.fill(THECOLORS['black'])
+pygame.display.set_caption("sss")
+font = pygame.font.SysFont('couriernew', 40)
+text = font.render('', True, THECOLORS['green'])
+dis.blit(text, (50, 50))
+
+color = (155, 0, 0)
+square_size = 50
+gap = 10
+
+for y in range(10, 800, square_size + gap):  # шаг 60 = 50 + 10
+    for x in range(1, 1200, square_size + gap):
+        r = pygame.Rect(x, y, square_size, square_size)
+        pygame.draw.rect(dis, color, r, 0)
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    pygame.display.update()
+
+pygame.quit()
