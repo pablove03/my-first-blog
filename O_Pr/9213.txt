@@ -1,0 +1,2 @@
+        text=font.render(('Hello')),True,THECOLORS['green'])
+        dis.blit(text,(50,50))
